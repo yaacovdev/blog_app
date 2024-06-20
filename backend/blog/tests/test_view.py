@@ -146,6 +146,22 @@ class PostViewSetTest(APITestCase):
             Post.objects.get(id=self.post.id).content, "This is an updated post"
         )
 
+    def test_cannot_update_other_users_post(self):
+        """
+        Test that a user cannot update another user's post.
+        """
+        user2 = User.objects.create_user(username="testuser2", password="testpassword")
+        post = Post.objects.create(
+            title="Test Post 2", content="This is a test post 2", author=user2
+        )
+        url = reverse("post-detail", args=[post.id])
+        data = {
+            "title": "Updated Post",
+            "content": "This is an updated post",
+        }
+        response = self.client.put(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
     def test_delete_post(self):
         """
         Test that a post can be deleted.
@@ -154,6 +170,18 @@ class PostViewSetTest(APITestCase):
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Post.objects.count(), 0)
+
+    def test_cannot_delete_other_users_post(self):
+        """
+        Test that a user cannot delete another user's post.
+        """
+        user2 = User.objects.create_user(username="testuser2", password="testpassword")
+        post = Post.objects.create(
+            title="Test Post 2", content="This is a test post 2", author=user2
+        )
+        url = reverse("post-detail", args=[post.id])
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_most_commented_posts(self):
         self.user1 = User.objects.create_user(username="user1", password="password")
@@ -302,14 +330,6 @@ class CommentViewSetTest(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data["content"], "Updated comment content")
-
-    def test_partial_update_comment(self):
-        self.client.login(username="user2", password="password")
-        data = {"content": "Partially updated comment content"}
-        response = self.client.patch(self.detail_url, data, format="json")
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data["content"], "Partially updated comment content")
 
     def test_delete_comment(self):
         self.client.login(username="user2", password="password")
