@@ -1,0 +1,1720 @@
+{
+	"info": {
+		"_postman_id": "7502a63b-a486-4e2f-930a-174bdd1553db",
+		"name": "API Documentation #reference",
+		"description": "# API Documentation\n\nWelcome to the API Documentation section of our blogging application. Here you will find detailed information about the API endpoints, their functionalities, and how to use them effectively.\n\n## Getting Started\n\nTo get started with our API, you will need to:\n\n1. **Authentication**: Use Django Rest Framework's token authentication to authenticate your requests. Obtain an authentication token by registering and logging in as a user.\n    \n2. **Base URL**: The base URL for all API endpoints is `http://your-api-url.com`.\n    \n3. **API Endpoints**: Below is a list of available API endpoints:\n    \n    - **User Registration** (`POST /api/register/`): Endpoint to create a new user.\n        \n    - **Authentication** (`POST /api/login/`): Endpoint to authenticate a user and obtain an authentication token.\n        \n    - **Create Post** (`POST /api/posts/`): Authenticated users can create a new post.\n        \n    - **List Posts** (`GET /api/posts/`): Get a list of all posts.\n        \n    - **Retrieve Post** (`GET /api/posts//`): Get details of a specific post.\n        \n    - **Update Post** (`PUT /api/posts//`): Authenticated users can update their own posts.\n        \n    - **Delete Post** (`DELETE /api/posts//`): Authenticated users can delete their own posts.\n        \n    - **Create Comment** (`POST /api/posts//comments/`): Authenticated users can comment on a post.\n        \n    - **List Comments** (`GET /api/posts//comments/`): Get a list of all comments for a specific post.\n        \n    - **Retrieve Comment** (`GET /api/posts//comments//`): Get details of a specific comment.\n        \n    - **Update Comment** (`PUT /api/posts//comments//`): Authenticated users can update their own comments.\n        \n    - **Delete Comment** (`DELETE /api/posts//comments//`): Authenticated users can delete their own comments.\n        \n    - **Most Commented Posts** (`GET /api/posts/most-commented/`): Get the top 5 most commented blog posts.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28520243",
+		"_collection_link": "https://www.postman.com/speeding-firefly-125303/workspace/blog/collection/28520243-7502a63b-a486-4e2f-930a-174bdd1553db?action=share&source=collection_link&creator=28520243"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "he connection ednpoint {\n    \"username\": \"yaachov\",\n    \"password\": \"mypassword\",\n    \"email\": \"myemail@ex.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/register/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"register",
+								""
+							]
+						},
+						"description": "- **URL:** `POST /api/register/`\n    \n- **Headers:** None"
+					},
+					"response": [
+						{
+							"name": "Register success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"yaacov\",\n    \"password\": \"mypassword\",\n    \"email\": \"myemail@ex.co\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://farming-simulator.pstmn.io/api/register/",
+									"protocol": "https",
+									"host": [
+										"farming-simulator",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jun 2024 10:07:09 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie",
+									"type": "text"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS",
+									"type": "text"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105",
+									"type": "text"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"type": "text"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin",
+									"type": "text"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"username\": \"yaacov\",\n        \"email\": \"myemail@ex.co\"\n    },\n    \"token\": \"5f51990594f7f2c78394670f0c77730feb7430eb\"\n}"
+						},
+						{
+							"name": "Register already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"yaacov\",\n    \"password\": \"mypassword\",\n    \"email\": \"myemail@ex.co\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/register/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jun 2024 10:08:42 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie",
+									"type": "text"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS",
+									"type": "text"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58",
+									"type": "text"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"type": "text"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin",
+									"type": "text"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": [\n        \"A user with that username already exists.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"yaacov\",\n    \"password\":\"mypassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/token/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						},
+						"description": "The Basic Auth endpoint with the username and password to receive the user token"
+					},
+					"response": [
+						{
+							"name": "Get token success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"yaacov\",\n    \"password\":\"mypassword\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/token/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"token",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jun 2024 12:23:52 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS",
+									"type": "text"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52",
+									"type": "text"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie",
+									"type": "text"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"type": "text"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin",
+									"type": "text"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"5f51990594f7f2c78394670f0c77730feb7430eb\"\n}"
+						},
+						{
+							"name": "Get token invlid pwd",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"yaacov\",\n    \"password\":\"badpassword\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/token/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"token",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jun 2024 12:25:20 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"error\": \"Invalid data\",\n    \"details\": {\n        \"non_field_errors\": [\n            \"Unable to log in with provided credentials.\"\n        ]\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "The default Django user",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Retrieve a post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/posts/:post/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								":post",
+								""
+							],
+							"variable": [
+								{
+									"key": "post",
+									"value": "16"
+								}
+							]
+						},
+						"description": "Gets information about a collection. For a complete list of this endpoint's possible values, use the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": [
+						{
+							"name": "Not found post",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts/122",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"122"
+									],
+									"query": [
+										{
+											"key": "access_key",
+											"value": "",
+											"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 19 Jun 2024 08:36:03 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 404,\n    \"error\": \"Not Found\",\n    \"details\": null\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/posts/:post/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"posts",
+										":post",
+										""
+									],
+									"variable": [
+										{
+											"key": "post",
+											"value": "16"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jun 2024 15:25:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 16,\n    \"author\": \"yaacov\",\n    \"created_at\": \"20/06/2024\",\n    \"updated_at\": \"20/06/2024\",\n    \"title\": \"my title 6\",\n    \"content\": \"my content\",\n    \"comments\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Token {{token}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/posts/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"6"
+							]
+						},
+						"description": "Deletes a collection."
+					},
+					"response": [
+						{
+							"name": "Success deleted",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://farming-simulator.pstmn.io/api/posts/1",
+									"protocol": "https",
+									"host": [
+										"farming-simulator",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"posts",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 19 Jun 2024 08:34:10 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie",
+									"type": "text"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+									"type": "text"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "149",
+									"type": "text"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"type": "text"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin",
+									"type": "text"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"title\": \"my title 2\",\n    \"content\": \"my content\",\n    \"created_at\": \"2024-06-19T08:06:41.938347Z\",\n    \"updated_at\": \"2024-06-19T08:06:41.938508Z\",\n    \"author\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Update a post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Token {{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"title\": \"my title 4 with update\",\n    \"content\": \"my content\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/posts/:post/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								":post",
+								""
+							],
+							"variable": [
+								{
+									"key": "post",
+									"value": "6",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 4,\n    \"title\": \"my title 4 with update\",\n    \"content\": \"my content\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts/:post/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										":post",
+										""
+									],
+									"variable": [
+										{
+											"key": "post",
+											"value": "6",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jun 2024 15:30:21 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin",
+									"type": "text"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+									"type": "text"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "134",
+									"type": "text"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"type": "text"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin",
+									"type": "text"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 6,\n    \"author\": \"yaacov\",\n    \"created_at\": \"19/06/2024\",\n    \"updated_at\": \"19/06/2024\",\n    \"title\": \"my title 4 with update\",\n    \"content\": \"my content\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/posts/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jun 2024 15:30:03 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin",
+									"type": "text"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS",
+									"type": "text"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2068",
+									"type": "text"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"type": "text"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin",
+									"type": "text"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 5,\n        \"author\": \"yaacov\",\n        \"created_at\": \"19/06/2024\",\n        \"updated_at\": \"19/06/2024\",\n        \"title\": \"my title 4\",\n        \"content\": \"my content\"\n    },\n    {\n        \"id\": 6,\n        \"author\": \"yaacov\",\n        \"created_at\": \"19/06/2024\",\n        \"updated_at\": \"19/06/2024\",\n        \"title\": \"my title 4 with update\",\n        \"content\": \"my content\"\n    },\n    {\n        \"id\": 10,\n        \"author\": \"yayo\",\n        \"created_at\": \"19/06/2024\",\n        \"updated_at\": \"19/06/2024\",\n        \"title\": \"lorem 2\",\n        \"content\": \"What is Lorem Ipsum?\\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\\n\\nWhy do we use it?\\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\"\n    },\n    {\n        \"id\": 12,\n        \"author\": \"wdfg\",\n        \"created_at\": \"20/06/2024\",\n        \"updated_at\": \"20/06/2024\",\n        \"title\": \"xfb\",\n        \"content\": \"wxdfcb\"\n    },\n    {\n        \"id\": 15,\n        \"author\": \"yayo\",\n        \"created_at\": \"20/06/2024\",\n        \"updated_at\": \"20/06/2024\",\n        \"title\": \"xdv\",\n        \"content\": \"xdcv\"\n    },\n    {\n        \"id\": 16,\n        \"author\": \"yaacov\",\n        \"created_at\": \"20/06/2024\",\n        \"updated_at\": \"20/06/2024\",\n        \"title\": \"my title 6\",\n        \"content\": \"my content\"\n    },\n    {\n        \"id\": 17,\n        \"author\": \"yaacov\",\n        \"created_at\": \"20/06/2024\",\n        \"updated_at\": \"20/06/2024\",\n        \"title\": \"my title 6\",\n        \"content\": \"my content\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Most Commented Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/posts/most-commented",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"most-commented"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts/most-commented",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"most-commented"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jun 2024 15:29:27 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin",
+									"type": "text"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS",
+									"type": "text"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1820",
+									"type": "text"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"type": "text"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin",
+									"type": "text"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 6,\n        \"author\": \"yaacov\",\n        \"created_at\": \"19/06/2024\",\n        \"updated_at\": \"19/06/2024\",\n        \"title\": \"my title 4 with update\",\n        \"content\": \"my content\"\n    },\n    {\n        \"id\": 12,\n        \"author\": \"wdfg\",\n        \"created_at\": \"20/06/2024\",\n        \"updated_at\": \"20/06/2024\",\n        \"title\": \"xfb\",\n        \"content\": \"wxdfcb\"\n    },\n    {\n        \"id\": 10,\n        \"author\": \"yayo\",\n        \"created_at\": \"19/06/2024\",\n        \"updated_at\": \"19/06/2024\",\n        \"title\": \"lorem 2\",\n        \"content\": \"What is Lorem Ipsum?\\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\\n\\nWhy do we use it?\\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\"\n    },\n    {\n        \"id\": 15,\n        \"author\": \"yayo\",\n        \"created_at\": \"20/06/2024\",\n        \"updated_at\": \"20/06/2024\",\n        \"title\": \"xdv\",\n        \"content\": \"xdcv\"\n    },\n    {\n        \"id\": 5,\n        \"author\": \"yaacov\",\n        \"created_at\": \"19/06/2024\",\n        \"updated_at\": \"19/06/2024\",\n        \"title\": \"my title 4\",\n        \"content\": \"my content\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"my title for my post\",\n    \"content\":\" my content post\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/posts/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"my title for my post\",\n    \"content\":\" my content post\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jun 2024 15:38:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 19,\n    \"author\": \"yaacov\",\n    \"created_at\": \"20/06/2024\",\n    \"updated_at\": \"20/06/2024\",\n    \"title\": \"my title for my post\",\n    \"content\": \"my content post\"\n}"
+						},
+						{
+							"name": "Bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"my title for my post\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/posts/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"posts",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jun 2024 15:39:26 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"error\": \"Invalid data\",\n    \"details\": {\n        \"content\": [\n            \"This field is required.\"\n        ]\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "The `/collections` endpoints let you manage your [collections](https://learning.postman.com/docs/sending-requests/intro-to-collections/).",
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Token {{token}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "get All specific post's comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/posts/:post/comments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								":post",
+								"comments"
+							],
+							"variable": [
+								{
+									"key": "post",
+									"value": "6",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://farming-simulator.pstmn.io/api/posts/:post/comments",
+									"protocol": "https",
+									"host": [
+										"farming-simulator",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"posts",
+										":post",
+										"comments"
+									],
+									"variable": [
+										{
+											"key": "post",
+											"value": "6",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 19 Jun 2024 09:30:26 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept",
+									"type": "text"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS",
+									"type": "text"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103",
+									"type": "text"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"type": "text"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin",
+									"type": "text"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"author\": \"yaacov\",\n        \"content\": \"my comment\",\n        \"created_at\": \"2024-06-19T09:30:15.561278Z\",\n        \"post\": 6\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Retrieve Comment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/comments/:comment/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								":comment",
+								""
+							],
+							"variable": [
+								{
+									"key": "comment",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/comments/:comment/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								":comment",
+								""
+							],
+							"variable": [
+								{
+									"key": "comment",
+									"value": "4",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"new content\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/comments/:comment/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								":comment",
+								""
+							],
+							"variable": [
+								{
+									"key": "comment",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"content\": \"new content\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/comments/:comment/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"comments",
+										":comment",
+										""
+									],
+									"variable": [
+										{
+											"key": "comment",
+											"value": "1",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 19 Jun 2024 09:53:53 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept",
+									"type": "text"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+									"type": "text"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102",
+									"type": "text"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"type": "text"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin",
+									"type": "text"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"author\": \"yaacov\",\n    \"content\": \"new content\",\n    \"created_at\": \"2024-06-19T09:30:15.561278Z\",\n    \"post\": 6\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"my comment 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/posts/:post/comments/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								":post",
+								"comments",
+								""
+							],
+							"variable": [
+								{
+									"key": "post",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "Token {{token}}",
+						"type": "string"
+					}
+				]
+			}
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "Token {{token}} ",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8000"
+		}
+	]
+}

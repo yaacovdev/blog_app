@@ -50,7 +50,7 @@ This project is a simple blogging application built with a Django backend and a 
 ### Documentation
 
 - Include a `README.md` with instructions on setting up and running the project.
-- API documentatiin Postman [Postman Collection](./.postman.json).
+- API documentatiin Postman [Postman Collection](./blog_postman_collection.json).
 
 ## Part 2: Frontend Development
 
@@ -100,13 +100,17 @@ This project is a simple blogging application built with a Django backend and a 
     ```bash
     python backend/manage.py runserver
     ```
-
-6. **Frontend**:
+6. **CreateSuperUser**:
+    ```bash
+    python backend/manage.py createsuperuser
+    ```
+7. **Frontend**:
     - Open `frontend/index.html` in a web browser to view the frontend.
 
 ## Running Tests
 
 To run the tests, execute:
 ```bash
-python backend/manage.py test
+cd  backend
+python manage.py test
 ```
