@@ -1,0 +1,82 @@
+li {
+    cursor: pointer;
+}
+main {
+    margin-bottom: 100px;
+}
+li div {
+    margin-left: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+div ul {
+    list-style-type: none;
+}
+
+.content-preview {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.5;
+    max-height: 3em; /* 2 lines * line-height */
+}
+
+.read-more {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    background: white; /* Adjust background to match the card background */
+    padding-left: 5px;
+}
+
+.card-home {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.auth-links {
+    display: flex;
+}
+
+.auth-links a {
+    margin-right: 1rem;
+}
