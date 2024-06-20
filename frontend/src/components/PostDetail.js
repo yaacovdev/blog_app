@@ -20,14 +20,18 @@ export default {
             <div class="d-flex justify-content-end">
                 <button v-if="isCommentAuthor(post)" @click="updatePost(post)" class="btn btn-sm m-1 btn-dark">Update</button>
                 <button v-if="isCommentAuthor(post)" @click="deletePost(post.id)" class="btn btn-sm m-1 btn-danger">Delete</button>
-            </div>
-                <h3 class="mb-4">{{ post.title }}</h3>
-                <p><strong>Author:</strong> {{ post.author }}
+                </div>
+                <h3 class="mb-4 ">{{ post.title }}</h3>
+            <div class="d-flex justify-content-end">
+
+                <div class="mb-3"><strong>Author:</strong> <span class="text-uppercase">{{ post.author }}</span>
                 <br>
-                <strong>Created at:</strong> {{ post.created_at }}</p>
+                <strong>Created at:</strong> {{ post.created_at }}</div>
+                </div>
                 <div class="card">
                     <p class="card-body">{{ post.content }}</p>
                 </div>
+                <div class="container ps-5">
                 <h5 class="mt-5 mb-4">Comments</h5>
                 <ul class="list-unstyled">
                     <div v-for="comment in post.comments" :key="comment.id" class="mb-3" @click="toggleComment(comment)">
@@ -59,6 +63,7 @@ export default {
                         </div>
                     </div>
                 </form>
+                </div>
             </div>
         </div>
     </div>
